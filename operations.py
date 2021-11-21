@@ -68,7 +68,7 @@ class Operations:
         if num_b < 0 or num_a == 0:
             raise ValueError
 
-        stack.append(num_a ** (1 / num_b))
+        stack.append(num_b ** (1 / num_a))
 
     @staticmethod
     def modulo(stack: list) -> None:

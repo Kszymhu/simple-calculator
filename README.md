@@ -21,4 +21,4 @@ A simple calculator written in Python, with PyQt GUI.
   </ul>
 </p>
 
-Also doesn't work for the moment
+Also doesn't work at the moment

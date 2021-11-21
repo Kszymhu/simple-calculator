@@ -1,8 +1,8 @@
-# simple-calculator
+<h1>simple-calculator</h1>
 A simple calculator written in Python, with PyQt GUI. 
 
 <p>
-  Supports:<br/>
+  <h2>Supports:</h2>
   <ul>
     <li>addition</li>
     <li>subtraction</li>
@@ -13,7 +13,7 @@ A simple calculator written in Python, with PyQt GUI.
   </ul>
 </p>
 <p>
-  <h2>Doesn't support:<h2>
+  <h2>Doesn't support:</h2>
   <ul>
     <li>trigonometry</li>
     <li>the entire rest of mathematics</li>

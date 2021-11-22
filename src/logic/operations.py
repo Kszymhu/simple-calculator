@@ -1,7 +1,7 @@
 """Contains the `Operations` class.
 """
 from math import log
-from operation import Operation, Associativity
+from logic.operation import Operation, Associativity
 
 def addition(num_a: float, num_b: float) -> float:
     """Adds `num_a` to `num_b`.

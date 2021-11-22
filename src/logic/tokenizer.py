@@ -11,7 +11,7 @@ You say I'm crazy
 
 from math import pi, e
 from typing import Union
-from operations import IDENTIFIERS_VS_OPERATIONS
+from logic.operations import IDENTIFIERS_VS_OPERATIONS
 
 IDENTIFIERS_VS_CONSTANTS = {
     "pi": pi,

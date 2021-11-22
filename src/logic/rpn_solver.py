@@ -1,4 +1,4 @@
-from operations import IDENTIFIERS_VS_OPERATIONS
+from logic.operations import IDENTIFIERS_VS_OPERATIONS
 
 def calculate(tokens):
     stack = []

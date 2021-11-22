@@ -1,6 +1,6 @@
 from logic.operations import IDENTIFIERS_VS_OPERATIONS
 
-def calculate(tokens):
+def calculate_rpn(tokens):
     stack = []
     for token in tokens:
         if token in IDENTIFIERS_VS_OPERATIONS.keys():

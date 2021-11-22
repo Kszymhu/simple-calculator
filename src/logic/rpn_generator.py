@@ -1,6 +1,6 @@
 """Contains the `generate_rpn` function."""
 
-from tokenizer import Token
+from logic.tokenizer import Token
 from logic.operations import IDENTIFIERS_VS_OPERATIONS as OPERATIONS
 from logic.operation import Associativity
 

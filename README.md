@@ -1,5 +1,5 @@
 <h1>simple-calculator</h1>
-A simple calculator written in Python, with PyQt GUI. 
+A simple calculator written in Python, with PyQt GUI (Which, as of now, doesn't exist). 
 
 <p>
   <h2>Supports:</h2>

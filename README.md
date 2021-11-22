@@ -20,3 +20,5 @@ A simple calculator written in Python, with PyQt GUI.
     <li>long-lasting romantic relationships</li>
   </ul>
 </p>
+
+Also doesn't work at the moment

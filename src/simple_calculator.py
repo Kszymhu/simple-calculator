@@ -1,18 +1,31 @@
 from __future__ import annotations
-from expression import Expression
+from typing import Union
 
-class Operations:
-    @staticmethod
-    def addition(calculated_operands: list[float]) -> float:
-        result = calculated_operands[0] + calculated_operands[1]
-        return result
+Token = Union[str, float]
 
-    @staticmethod
-    def multiplication(calculated_operands: list[float]) -> float:
-        result = calculated_operands[0] * calculated_operands[1]
-        return result
+def check_if_valid_float(candidate: str) -> bool:
+    """Checks if `candidate` represents a valid float.
+    """
+    try:
+        float(candidate)
+        return True
+    except ValueError:
+        return False
+
+def tokenize_expression(expression: str) -> list[Token]:
+    """Splits `expression` into a list of tokens."""
+    return [
+        float(x) if check_if_valid_float(x)
+        else x
+        for x in expression.split(" ")
+    ]
+
+def main() -> None:
+    expression = input()
+    tokens = tokenize_expression(expression)
+
+    print(tokens)
 
 if __name__ == "__main__":
-    expr1 = Expression(Operations.multiplication, [3, 7])
-    expr2 = Expression(Operations.addition, [5, expr1])
-    print(expr2.calculate())
+    main()
+    

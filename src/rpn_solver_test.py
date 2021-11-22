@@ -5,7 +5,7 @@ def calculate(tokens):
     for token in tokens:
         if token in IDENTIFIERS_VS_OPERATORS.keys():
             operator = IDENTIFIERS_VS_OPERATORS[token]
-            operator.operation()(stack)
+            operator.function()(stack)
         else:
             stack.append(token)
     

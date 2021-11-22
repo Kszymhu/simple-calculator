@@ -1,44 +1,44 @@
-"""Contains the `Operator` class.
+"""Contains the `Associativity` and `Operation` class.
 """
 
 from typing import Callable
 from enum import Enum
 
-class MathOperator:
-    """Holds data about a specific mathematical operator.
+class Associativity(Enum):
+    """Enum containing flags describing the operator associativity
+    (which operation is executed first in case of equal precedence level).
     """
+    LEFT = 0
+    RIGHT = 1
 
-    class Associativity(Enum):
-        """Enum containing flags describing the operator associativity
-        (which operation is executed first in case of equal precedence level).
-        """
-        LEFT = 0
-        RIGHT = 1
 
+class Operation:
+    """Holds data about a specific mathematical operation.
+    """
     def __init__(
         self,
-        operation: Callable,
-        precedence_level: int,
+        function: Callable,
+        precedence: int,
         associativity: Associativity
     ) -> None:
-        self._operation = operation
-        self._precedence_level = precedence_level
-        self._associativity = associativity
+        self.__function = function
+        self.__precedence = precedence
+        self.__associativity = associativity
 
-    def operation(self) -> Callable:
+    def function(self) -> Callable:
         """Returns the operation
         (function which performs the mathematical operation).
         """
-        return self._operation
+        return self.__function
 
-    def precedence_level(self) -> int:
+    def precedence(self) -> int:
         """Returns the precedence level
         (number describing the priority with which the operators are executed).
         """
-        return self._precedence_level
+        return self.__precedence
 
     def associativity(self) -> Associativity:
         """Returns a flag describing operator associativity
         (which operation is executed first in case of equal precedence level).
         """
-        return self._associativity
+        return self.__associativity

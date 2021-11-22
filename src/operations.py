@@ -59,7 +59,7 @@ def root(num_a: float, num_b: float) -> float:
     if num_b < 0 or num_a == 0:
         raise ValueError
 
-    return (num_a ** (1 / num_b))
+    return num_a ** (1 / num_b)
 
 def logarithm(num_a: float, num_b: float) -> float:
     """Calculates the base-`num_a` logarithm of `num_b`.

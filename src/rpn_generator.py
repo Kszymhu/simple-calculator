@@ -6,7 +6,8 @@ from operation import Associativity
 
 def generate_rpn(tokens: list[Token]) -> list[Token]:
     """Rearranges `tokens` into the reverse polish notation, using the shunting yard algorithm.
-    This code is *definitely not* a butchered version of pseudocode from https://en.wikipedia.org/wiki/Shunting-yard_algorithm.
+    This code is *definitely not* a butchered version of
+    pseudocode from https://en.wikipedia.org/wiki/Shunting-yard_algorithm.
     """
     output = []
     op_stack = []

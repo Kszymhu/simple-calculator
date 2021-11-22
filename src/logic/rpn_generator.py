@@ -1,12 +1,13 @@
 """Contains the `generate_rpn` function."""
 
-from tokenizer import Token
-from operations import IDENTIFIERS_VS_OPERATIONS as OPERATIONS
-from operation import Associativity
+from logic.tokenizer import Token
+from logic.operations import IDENTIFIERS_VS_OPERATIONS as OPERATIONS
+from logic.operation import Associativity
 
 def generate_rpn(tokens: list[Token]) -> list[Token]:
     """Rearranges `tokens` into the reverse polish notation, using the shunting yard algorithm.
-    This code is *definitely not* a butchered version of pseudocode from https://en.wikipedia.org/wiki/Shunting-yard_algorithm.
+    This code is *definitely not* a butchered version of
+    pseudocode from https://en.wikipedia.org/wiki/Shunting-yard_algorithm.
     """
     output = []
     op_stack = []

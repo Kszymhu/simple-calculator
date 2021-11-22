@@ -1,5 +1,5 @@
 <h1>simple-calculator</h1>
-A simple calculator written in Python, with Tkinter UI (which doesn't exist yet)
+A simple calculator written in Python, with PyQt5 UI. 
 
 <p>
   <h2>Supports:</h2>

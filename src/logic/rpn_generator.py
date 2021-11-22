@@ -25,7 +25,6 @@ def generate_rpn(tokens: list[Token]) -> list[Token]:
                 and OPERATIONS[token].associativity ==  Associativity.LEFT
             ):
                 output.append(op_stack.pop())
-
             op_stack.append(token)
 
         elif token == "(":

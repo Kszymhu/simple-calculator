@@ -10,6 +10,7 @@ A simple calculator written in Python, with PyQt GUI.
     <li>division</li>
     <li>exponentiation</li>
     <li>logarithms</li>
+    <li>pi and e</li>
   </ul>
 </p>
 <p>
@@ -20,5 +21,3 @@ A simple calculator written in Python, with PyQt GUI.
     <li>long-lasting romantic relationships</li>
   </ul>
 </p>
-
-Also doesn't work at the moment

@@ -1,95 +1,96 @@
 """Contains the `Operations` class.
 """
+from math import log
+from operation import Operation, Associativity
 
-from math_operator import MathOperator as operator
-
-class Operations:
-    """Contains methods for performing all of the calculations the calculator is capable of.
+def addition(num_a: float, num_b: float) -> float:
+    """Adds `num_a` to `num_b`.
+    Neither `num_a` nor `num_b` need to fit any additional requirements.
     """
-    @staticmethod
-    def addition(stack: list) -> None:
-        """Pops two elements of the stack, adds them, and pushes the result.
-        Elements don't need to fit any additional requirements.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        stack.append(num_a + num_b)
+    return num_a + num_b
 
-    @staticmethod
-    def subtraction(stack: list) -> None:
-        """Pops two elements of the stack, subtracts the first one from the second one,
-        then pushes the result.
-        Elements don't need to fit any additional requirements.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        stack.append(num_a - num_b)
+def subtraction(num_a: float, num_b: float) -> float:
+    """Subtracts `num_b` from `num_a`.
+    Neither `num_a` nor `num_b` need to fit any additional requirements.
+    """
+    return num_a - num_b
 
-    @staticmethod
-    def multiplication(stack: list) -> None:
-        """Pops two elements of the stack, multiplies them, then pushes the result.
-        Elements don't need to fit any additional requirements.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        stack.append(num_a * num_b)
+def multiplication(num_a: float, num_b: float) -> float:
+    """Multiplies `num_a` and `num_b`.
+    Neither `num_a` nor `num_b` need to fit any additional requirements.
+    """
+    return num_a * num_b
 
-    @staticmethod
-    def division(stack: list) -> None:
-        """Pops two elements of the stack,
-        divides the second one by the first one, then pushes the result.
-        Raises ValueError if the first popped element is 0.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        if num_b == 0:
-            raise ValueError
+def division(num_a: float, num_b: float) -> float:
+    """Divides `num_a` by `num_b`.
+    Raises ValueError if `num_b` == 0.
+    """
+    if num_b == 0:
+        raise ValueError
 
-        stack.append(num_a / num_b)
+    return num_a / num_b
 
-    @staticmethod
-    def exponentiation(stack: list) -> None:
-        """Pops two elements of the stack,
-        raises the second one to the power of the first one, then pushes the result.
-        Elements don't need to fit any additional requirements.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        stack.append(num_a ** num_b)
+def modulo(num_a: float, num_b: float) -> float:
+    """Calculates the remainder of division of `num_a` by `num_b`
+    Raises ValueError if `num_b` == 0.
+    """
+    if num_b == 0:
+        raise ValueError
 
-    @staticmethod
-    def root(stack: list) -> None:
-        """Pops two elements of the stack,
-        calculates the `second popped element`th root of the first one, then pushes the result.
-        Raises ValueError if the first popped element is negative, or when the second element is 0.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
-        if num_b < 0 or num_a == 0:
-            raise ValueError
+    return num_a % num_b
 
-        stack.append(num_b ** (1 / num_a))
+def exponentiation(num_a: float, num_b: float) -> float:
+    """Raises `num_a` to the power of `num_b`.
+    Raises ValueError if both `num_a` and `num_b` are 0.
+    """
 
-    @staticmethod
-    def modulo(stack: list) -> None:
-        """Pops two elements of the stack,
-        divides the second one by the first one, then pushes the remainder.
-        Raises ValueError if the first popped element is 0.
-        """
-        num_b = stack.pop()
-        num_a = stack.pop()
+    if num_a == 0 and num_b == 0:
+        raise ValueError
 
-        if num_b == 0:
-            raise ValueError
+    return num_a ** num_b
 
-        stack.append(num_a % num_b)
+def root(num_a: float, num_b: float) -> float:
+    """Calculates the `num_a`-degree root of `num_b`.
+    Raises ValueError if:
+    1. `num_b` < 0
+    2. `num_a` == 0.
+    """
 
-IDENTIFIERS_VS_OPERATORS = {
-        "+": operator(Operations.addition, 1, operator.Associativity.LEFT),
-        "-": operator(Operations.subtraction, 1, operator.Associativity.LEFT),
-        "*": operator(Operations.multiplication, 2, operator.Associativity.LEFT),
-        "/": operator(Operations.division, 2, operator.Associativity.LEFT),
-        "%": operator(Operations.modulo, 2, operator.Associativity.LEFT),
-        "^": operator(Operations.exponentiation, 3, operator.Associativity.RIGHT),
-        "root": operator(Operations.root, 3, operator.Associativity.RIGHT)
+    if num_b < 0 or num_a == 0:
+        raise ValueError
+
+    return (num_a ** (1 / num_b))
+
+def logarithm(num_a: float, num_b: float) -> float:
+    """Calculates the base-`num_a` logarithm of `num_b`.
+    Raises ValueError if:
+    1. `num_b` is 0 and `num_a` is non-zero
+    2. `num_a` is 0 and `num_b` is non-zero
+    3. `num_b` is 1
+    4. `num_a` <= 0
+    5. `num_b` < 0
+    """
+    value_error_conds = [
+        num_b == 0 and num_a != 0,
+        num_a == 0 and num_b != 0,
+        num_b == 1,
+        num_a <= 0,
+        num_b < 0
+    ]
+
+    if True in value_error_conds:
+        raise ValueError
+
+    return log(num_b, num_a)
+
+
+IDENTIFIERS_VS_OPERATIONS = {
+        "+": Operation(addition, 1, Associativity.LEFT),
+        "-": Operation(subtraction, 1, Associativity.LEFT),
+        "*": Operation(multiplication, 2, Associativity.LEFT),
+        "/": Operation(division, 2, Associativity.LEFT),
+        "%": Operation(modulo, 2, Associativity.LEFT),
+        "^": Operation(exponentiation, 3, Associativity.RIGHT),
+        "root": Operation(root, 3, Associativity.RIGHT),
+        "log": Operation(logarithm, 3, Associativity.RIGHT)
     }

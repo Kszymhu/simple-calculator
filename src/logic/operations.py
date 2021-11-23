@@ -52,14 +52,14 @@ def exponentiation(num_a: float, num_b: float) -> float:
 def root(num_a: float, num_b: float) -> float:
     """Calculates the `num_a`-degree root of `num_b`.
     Raises ValueError if:
-    1. `num_b` < 0
-    2. `num_a` == 0.
+    1. `num_a` < 0
+    2. `num_b` == 0.
     """
 
-    if num_b < 0 or num_a == 0:
+    if num_a < 0 or num_b == 0:
         raise ValueError
 
-    return num_a ** (1 / num_b)
+    return num_b ** (1 / num_a)
 
 def logarithm(num_a: float, num_b: float) -> float:
     """Calculates the base-`num_a` logarithm of `num_b`.

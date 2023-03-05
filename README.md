@@ -17,7 +17,7 @@ A simple calculator written in Python, with PyQt5 UI.
   <h2>Doesn't support:</h2>
   <ul>
     <li>trigonometry</li>
-    <li>the entire rest of mathematics</li>
+    <li>the entire remainder of mathematics</li>
     <li>long-lasting romantic relationships</li>
   </ul>
 </p>
